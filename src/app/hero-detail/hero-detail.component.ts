@@ -17,9 +17,9 @@ export class HeroDetailComponent {
     private location: Location //servizio interagisce browser, permette il go back
   ) {}
 
-  @Input() hero?: Hero
+  @Input() hero: Hero | undefined
 
-  // hero: Hero | undefined
+   //hero: Hero | undefined
 
 ngOnInit(): void {
   this.getHero()

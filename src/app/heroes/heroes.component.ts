@@ -16,6 +16,12 @@ export class HeroesComponent {
   constructor(private heroService: HeroService) { }
 
   heroes: Hero[] = []
+  selectedHero?: Hero
+
+  onSelected(hero: Hero): void {
+    this.selectedHero = hero 
+  }
+  
 
   ngOnInit(): void {
     this.getHeroes()
