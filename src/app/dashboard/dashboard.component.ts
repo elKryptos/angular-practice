@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
+import { HeroService } from '../hero.service';
 import { Hero } from '../hero';
-import { HeroService } from '../services/hero.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,8 +8,8 @@ import { HeroService } from '../services/hero.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
-
-  constructor(private heroService: HeroService) {}
+  
+  constructor(private heroService: HeroService) { }
 
   heroes: Hero[] = []
 
@@ -18,11 +18,8 @@ export class DashboardComponent {
   }
 
   getHeroes(): void {
-    this.heroService.getHeroes().subscribe(
-      heroes => this.heroes = heroes.slice(1, 5)
-    )
+    this.heroService.getHeroes()
+    .subscribe(heroes => this.heroes = heroes.slice(4,7))
   }
-
-
 
 }
