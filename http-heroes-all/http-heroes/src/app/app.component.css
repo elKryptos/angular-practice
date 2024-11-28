@@ -1,0 +1,40 @@
+:host {
+    height: 100vh;
+    margin: 0;
+    display: block;
+    text-align: center; /* Centra i bottoni orizzontalmente */
+  }
+
+h1 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    font-size: 3rem;
+    margin-top: 50px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #29187d;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+/* Contenitore dei pulsanti */
+button {
+    background-color: #446057;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    margin: 20px 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
+}
+
+/* Effetto hover sui pulsanti */
+button:hover {
+    background-color: #ffa502;
+    transform: scale(1.1);
+}
+

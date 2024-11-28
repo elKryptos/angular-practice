@@ -1,0 +1,10 @@
+<h1>Create a New Hero</h1>
+<div>
+    <p id="errorHero" *ngIf="error">{{error}}</p>
+    <p id="createdOk" *ngIf="message">{{message}}</p>
+    <form (submit)="createHero()">
+        <p>Name : <input type="text" name="name" placeholder="New Hero" [(ngModel)]="hero.name">
+        </p>
+        <p><button type="submit">Confirm</button></p>
+    </form>
+</div>

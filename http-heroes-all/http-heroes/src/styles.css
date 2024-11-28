@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-image: url(https://media-assets.wired.it/photos/615daf9f8bf8c165f8f22456/16:9/w_1920%2Cc_limit/wired_placeholder_dummy.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+
+}
