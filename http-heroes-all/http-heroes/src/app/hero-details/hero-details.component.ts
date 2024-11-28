@@ -15,7 +15,7 @@ export class HeroDetailsComponent {
     private location: Location,
     private apiService: ApiService,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   @Input() hero?: Hero
 
@@ -25,14 +25,16 @@ export class HeroDetailsComponent {
 
   getHero(): void {
     const idparm = this.route.snapshot.paramMap.get('id')
-    const id = Number(idparm)
+    if (idparm) {
+      const id = parseInt(idparm)
 
-    if (isNaN(id) || id <= 0) {
-      return
+      this.apiService.getHero(id).subscribe(hero => this.hero = hero)
     }
+    // const id = Number(idparm)
 
-    this.apiService.getHero(id)
-    .subscribe(hero => this.hero = hero)
+    // if (isNaN(id) || id <= 0) {
+    //   return
+    // }
   }
 
   goBack(): void {
