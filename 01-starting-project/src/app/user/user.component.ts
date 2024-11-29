@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { DUMMY_USERS } from '../dummy-users';
 import { outputAst } from '@angular/compiler';
+import { User } from '../user';
 
 @Component({
   selector: 'app-user',
@@ -11,17 +12,18 @@ import { outputAst } from '@angular/compiler';
 })
 export class UserComponent {
 
-  @Input({ required: true }) id!: string
-  @Input({ required: true }) avatar!: string 
-  @Input({ required: true }) name!: string
+  @Input({ required: true }) user!: User
+  @Input({ required: true }) selected!: boolean
   @Output() select = new EventEmitter<string>() 
   //select = output<string>() fa la stessa cosa che quella sopra ma più recente 
 
   get imagePath() {
-    return 'assets/users/' + this.avatar
+    return 'assets/users/' + this.user.avatar
   }
  
+  //funzione che invia dati tramite @Output()
   onSelectUser(): void {
-    this.select.emit(this.id)
+    this.select.emit(this.user.id)
+    console.log(this.user.id)
   }
 }
