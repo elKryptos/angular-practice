@@ -1,6 +1,4 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { DUMMY_USERS } from '../dummy-users';
-import { outputAst } from '@angular/compiler';
 import { User } from '../user';
 
 @Component({

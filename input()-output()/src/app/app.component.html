@@ -1,0 +1,12 @@
+<h1>{{title}}</h1>
+<ul *ngFor="let user of users">
+<!-- 3) Collego le propieta di @Input con [input prop]="valore del let" -->
+<!-- 9) Collego le props di @Output() con  (output prop)="funz. gestice dati da app($event)" -->
+    <app-list [user]="user" (userSelected)="onUserRecieved($event)" ></app-list>
+</ul>
+<!-- 11) Uso *ngIf per farlo vedere solo quando selectedUser viene valorizzato -->
+<div *ngIf="selectedUser">
+<!-- 10) Faccio il collegameno del @Input() per avere i dati da app.component.ts -->
+    <app-details [user]="selectedUser"></app-details>
+</div>
+
