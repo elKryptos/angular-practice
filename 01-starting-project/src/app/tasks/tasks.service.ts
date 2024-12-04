@@ -11,21 +11,12 @@ export class TasksService {
   constructor() { }
   private tasks = DUMMY_TASKS
 
-  getUserTasks(user: User){
-    return this.tasks.filter((task) => task.userId === user.id)
+  getUsers(userId: string) {
+    this.tasks.filter((task) => task.userId === userId)
   }
 
-  addTask(taskData: NewTaskData, user: User) {
-    this.tasks.unshift({
-      id: new Date().getTime().toString(),
-      userId: user.id,
-      title: taskData.title,
-      summary: taskData.summary,
-      dueDate: taskData.date
-    })
+  deleteTask(id: string) {
+    this.tasks = this.tasks.filter((task) => task.id != id )
   }
 
-  deleteTask(userId: string) {
-    this.tasks = this.tasks.filter((task) => task.id != userId )
-  }
 }

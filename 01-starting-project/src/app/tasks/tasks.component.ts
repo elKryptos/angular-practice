@@ -6,6 +6,7 @@ import { TaskComponent } from "./task/task.component";
 import { DUMMY_TASKS } from '../dummy-tasks';
 import { NewTaskComponent } from "./new-task/new-task.component";
 import { NewTaskData } from '../task';
+import { TasksService } from './tasks.service';
 
 @Component({
   selector: 'app-tasks',
@@ -20,6 +21,8 @@ export class TasksComponent {
   tasks = DUMMY_TASKS  //passo i dati a task con il suo @Input()
   isAddingTask: boolean = false
 
+  constructor(private taskService: TasksService) {}
+
   get imagePath() {
     return 'assets/users/' + this.user.avatar
   }
@@ -27,13 +30,15 @@ export class TasksComponent {
   //al posto di usare tasks creo una funzione che mi filtra e 
   //mostra i task relativi a ogni utente in base al suo id e quindi lo uso nel *ngFor
   get selectedUserTasks() {
-    return this.tasks.filter((task) => task.userId === this.user.id)
+    //return this.tasks.filter((task) => task.userId === this.user.id)
+    return this.taskService.getUsers(this.user.id)
   }
 
   //gestico i dati che arrivano da task con il suo @Output()
   //per togliere il task completato
   onCompleteTask(id: string){
-    this.tasks = this.tasks.filter((task) => task.id != id )
+    //this.tasks = this.tasks.filter((task) => task.id != id )
+    this.taskService.deleteTask(id)
   }
 
   onStartAddTask() {
