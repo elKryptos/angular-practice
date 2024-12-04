@@ -5,6 +5,7 @@ import { User } from '../user';
 import { TaskComponent } from "./task/task.component";
 import { DUMMY_TASKS } from '../dummy-tasks';
 import { NewTaskComponent } from "./new-task/new-task.component";
+import { NewTaskData } from '../task';
 
 @Component({
   selector: 'app-tasks',
@@ -40,6 +41,17 @@ export class TasksComponent {
   }
 
   onCancel() {
+    this.isAddingTask = false
+  }
+
+  onAddTask(taskData: NewTaskData) {
+    this.tasks.unshift({
+      id: new Date().getTime().toString(),
+      userId: this.user.id,
+      title: taskData.title,
+      summary: taskData.summary,
+      dueDate: taskData.date
+    })
     this.isAddingTask = false
   }
 
